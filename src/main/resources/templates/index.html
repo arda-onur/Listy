@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Comment List</title>
+</head>
+<body>
+<div class="container">
+  <h1>Comments</h1>
+
+
+  <div class="form-container">
+
+    <div class="input-group">
+      <label for="criteria">Search by:</label>
+      <form th:action="@{/comment}" method="get">
+        <select id="criteria" name="criteria">
+          <option value="author" th:selected="${param.criteria == 'author'}">Author</option>
+          <option value="comment" th:selected="${param.criteria == 'comment'}">Comment</option>
+        </select>
+
+        <input type="text" id="word" name="word" placeholder="Enter search keyword" th:value="${param.word}" />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+<form th:action="@{/comment}" method="post">
+  <div class="input-group">
+    <label for="comment">New Comment:</label>
+    <input type="text" id="comment"  name="comment" placeholder="Enter your comment" required>
+    <button type="submit">Send</button>
+  </div>
+
+</form>
+
+  </div>
+
+
+  <table>
+    <thead>
+    <tr>
+      <th>Author</th>
+      <th>Comment</th>
+      <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="comment : ${comments}">
+      <td th:text="${comment.author}">Author</td>
+      <td th:text="${comment.comment}">Comment</td>
+      <td th:text="${comment.date}">Date</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+
+<style>
+  .container {
+    width: 90%;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+  }
+
+  .form-container {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .input-group label {
+    font-weight: bold;
+  }
+  .input-group select, .input-group input {
+    padding: 5px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+  th {
+    background-color: #f4f4f4;
+  }
+</style>
+</html>
+

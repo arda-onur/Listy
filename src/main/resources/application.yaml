@@ -1,0 +1,21 @@
+spring:
+  security:
+    user:
+      password: 123456
+      name: ardaonur
+  application:
+    name: listy
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/listy}
+    driver-class-name: org.postgresql.Driver
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:123456}
+  jpa:
+    generate-ddl: false
+    defer-datasource-initialization: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: listy
+
