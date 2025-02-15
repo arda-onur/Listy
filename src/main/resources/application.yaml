@@ -18,4 +18,8 @@ spring:
     properties:
       hibernate:
         default_schema: listy
+  flyway:
+    schemas: listy
+    baseline-on-migrate: true
+    table: flyway_schema_history
 

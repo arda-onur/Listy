@@ -9,7 +9,7 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.Listy.project</groupId>
-	<artifactId>arda.onur</artifactId>
+	<artifactId>listy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>arda.onur</name>
 	<description>ListyProject</description>
